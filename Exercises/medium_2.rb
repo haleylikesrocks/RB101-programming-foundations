@@ -212,17 +212,35 @@
 
 # # 9 Bubble Sort
 
-# array = [5, 3]
-# p bubble_sort!(array)
-# p array == [3, 5]
+def bubble_sort!(arr)
+  loop do
+    swap = false
 
-# array = [6, 2, 7, 1, 4]
-# p bubble_sort!(array)
-# p array == [1, 2, 4, 6, 7]
+    (1...arr.size).to_a.each do |index|
+      next if arr[index] >= arr[index - 1]
+      arr[index], arr[index - 1] = arr[index - 1], arr[index]
+      swap = true
+    end
+    
+    break unless swap
+  end
 
-# array = %w(Sue Pete Alice Tyler Rachel Kim Bonnie)
-# p bubble_sort!(array)
-# p array == %w(Alice Bonnie Kim Pete Rachel Sue Tyler)
+  arr
+end
+
+
+
+array = [5, 3]
+p bubble_sort!(array)
+p array == [3, 5]
+
+array = [6, 2, 7, 1, 4]
+p bubble_sort!(array)
+p array == [1, 2, 4, 6, 7]
+
+array = %w(Sue Pete Alice Tyler Rachel Kim Bonnie)
+p bubble_sort!(array)
+p array == %w(Alice Bonnie Kim Pete Rachel Sue Tyler)
 
 # # 10 Sum Square - Square Sum
 
